@@ -1,0 +1,23 @@
+/* bugSolution.css */
+/*Instead of using percentages directly within the calc() function,  calculate the percentage separately and use the absolute pixel value in calc().*/
+
+.container {
+  width: 50%; /* initial width */
+}
+
+.element {
+  width: calc(50% + 100px); /* problematic code */
+}
+
+.element-solution {
+  width: calc( (50% / 100) * 800px + 100px); /* Assuming the container's width is 800px */
+}
+
+/* Or use a variable to store the container width */
+:root {
+  --container-width: 800px;
+}
+
+.element-solution2 {
+  width: calc((50% / 100) * var(--container-width) + 100px);
+} 
